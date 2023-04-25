@@ -1,8 +1,4 @@
-
-
 FROM node:16-slim as node-builder
-
-RUN --mount=type=secret,id=_env,dst=/etc/secrets/.env cat /etc/secrets/.env
 
 COPY . ./app
 RUN cd /app && npm ci && npm run build
